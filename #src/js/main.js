@@ -515,18 +515,20 @@ if (stagesSec && itemStages.length > 0) {
 //intro title animation
 const introTitle = document.querySelectorAll(".intro__title svg")
 if (introTitle.length) {
-	introTitle.forEach((title, i) => {
-		gsap.fromTo(title.querySelectorAll("path"),
-			{
-				yPercent: 150, opacity: 0
-			},
-			{
-				yPercent: 0, opacity: 1,
-				duration: .4,
-				delay: index => index * 0.04 + 0.4 * i
-			}
-		)
-	})
+	setTimeout(() => {
+		introTitle.forEach((title, i) => {
+			gsap.fromTo(title.querySelectorAll("path"),
+				{
+					yPercent: 150, opacity: 0
+				},
+				{
+					yPercent: 0, opacity: 1,
+					duration: .4,
+					delay: index => index * 0.04 + 0.4 * i
+				}
+			)
+		})
+	}, 100);
 }
 //section title animation
 const secTitles = document.querySelectorAll(".sec-title")
@@ -598,6 +600,29 @@ if (splitList) {
 				}
 			}
 		})
+	})
+}
+const itemProgram = document.querySelectorAll(".item-program")
+if (itemProgram) {
+	itemProgram.forEach(item => {
+		let tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: item,
+				start: "top bottom-=200",
+				invalidateOnRefresh: true,
+			}
+		})
+		tl.fromTo(item,
+			{
+				y: 80,
+				opacity: 0,
+			},
+			{
+				y: 0,
+				opacity: 1,
+				duration: 2,
+			}
+		)
 	})
 }
 //speakers swiper
