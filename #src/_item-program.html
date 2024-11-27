@@ -1,0 +1,17 @@
+<!--item-program-->
+<div class="item-program">
+    <div class="item-program__date">
+        <span class="h3">@@day</span>
+        <span class="h5">@@month 2025</span>
+    </div>
+    <div class="item-program__content">
+        <h4>@@title</h4>
+        <h5>Евгений Иванов</h5>
+    </div>
+    @@if (online == true) {
+        <div class="h5 item-program__status online">Онлайн</div>
+    }  
+    @@if (online == false) {
+        <div class="h5 item-program__status">Офлайн</div>
+    }      
+</div>

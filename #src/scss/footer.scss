@@ -1,0 +1,118 @@
+.footer {
+    padding: 40px 0;
+    color: var(--white-color);
+    background: var(--black-color);
+    a {
+        color: var(--white-color);
+        &:hover {
+            color: var(--primary-color);
+        }
+    }
+    .logo {
+        svg {
+            fill: var(--white-color);
+        }
+    }
+    &--main {
+        .logo__site {
+            pointer-events: none;
+        }
+    }
+    &__row {
+        display: grid;
+        grid-template-columns: 6fr 4fr 3fr;
+        gap: 40px 20px;
+        align-items: start;
+        margin-bottom: 30px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &__menu {
+        ul {
+            column-count: 2;
+            column-gap: 20px;
+            margin-bottom: -12px;
+            li {
+                margin-bottom: 12px;
+            }
+        }
+    }
+    &__contacts {
+        justify-self: end;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        a {
+            font-size: 18px;
+            font-weight: 700;
+        }
+    }
+    &__txt,
+    &__dev {
+        span,
+        a {
+            font-size: 14px;
+            opacity: 0.6;
+        }
+        a:hover {
+            opacity: 1;
+            svg {
+                fill: var(--primary-color);
+            }
+        }
+    }
+    &__txt {
+        grid-column: 2/3;
+    }
+    &__dev {
+        justify-self: end;
+        display: flex;
+        align-items: center;
+        span {
+            margin-right: 8px;
+        }
+        svg {
+            fill: var(--white-color);
+            pointer-events: none;
+            transition: all 0.3s linear;
+        }
+    }
+    @media (max-width: $bp2) {
+        .logo {
+            grid-column: 1/3;
+        }
+        &__row {
+            grid-template-columns: 2fr 1fr;
+        }
+        &__txt {
+            grid-column: 1/2;
+        }
+    }
+    @media (max-width: $bp3) {
+        padding: 50px 0;
+        .logo {
+            grid-column: 1/2;
+        }
+        &__row {
+            grid-template-columns: 1fr;
+            &:last-child {
+                gap: 12px;
+            }
+        }
+        &__dev,
+        &__contacts {
+            justify-self: start;
+        }
+    }
+    @media (max-width: $bp5) {
+        .logo {
+            display: block;
+        }
+        &__menu {
+            ul {
+                column-count: 1;
+            }
+        }
+    }
+}

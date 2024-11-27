@@ -1,0 +1,235 @@
+<!--apply-mod-->
+<modal class="modal apply-mod" id="apply-mod-step1">
+    <div class="custom-scroll modal__overlay">
+        <div class="modal__content">
+            <button type="button" class="btn btn-close"><svg><use xlink:href="img/svg/sprite.svg#close"></use></svg></button>
+            <div class="custom-scroll">
+                <div class="modal__top">
+                    <h3>Заявка на участие </h3>
+                </div>
+                <div class="form-progress">
+                    <div class="form-progress__item current">
+                        <span>01</span>
+                        <span>Данные об участнике</span>
+                    </div>
+                    <span class="form-progress__line"></span>
+                    <div class="form-progress__item">
+                        <span>02</span>
+                        <span>О проекте</span>
+                    </div>
+                    <span class="form-progress__line"></span>
+                    <div class="form-progress__item">
+                        <span>03</span>
+                        <span>Документы</span>
+                    </div>
+                </div>
+                <form class="apply-form" onsubmit="event.preventDefault();openModal(document.querySelector('#apply-mod-step2'))">
+                    <div class="item-form error">
+                        <div class="item-form__lbl">Фамилия Имя Отчество участника</div>
+                        <input type="text" placeholder="Иванов Иван Иванович">
+                        <span data-error>Заполните поле</span>
+                    </div>
+                    <div class="item-form">
+                        <div class="item-form__lbl">Контактный телефон участника</div>
+                        <input type="tel" placeholder="+7-000-000-0000">
+                        <span data-error></span>
+                    </div>
+                    <div class="item-form">
+                        <div class="item-form__lbl">Контактная электронная почта участника</div>
+                        <input type="text" placeholder="mail@sample.ru">
+                        <span data-error></span>
+                    </div>
+                    <div class="item-form">
+                        <div class="item-form__lbl">Укажите категорию, к которой Вы относитесь</div>
+                        <label class="item-checkbox">
+                            <input type="radio" name="category" value="1" checked class="required">
+                            <span>Собственник / директор юридического лица - субъекта МСП / индивидуальный предприниматель - субъект МСП</span>
+                        </label>
+                        <label class="item-checkbox">
+                            <input type="radio" name="category" value="2" class="required">
+                            <span>Сотрудник ИП/юридического лица-субъекта МСП</span>
+                        </label>
+                        <label class="item-checkbox">
+                            <input type="radio" name="category" value="3" class="required">
+                            <span>Самозанятый</span>
+                        </label>
+                    </div>
+                    <div class="form__footer">
+                        <div class="modal__btns">
+                            <button type="submit" class="btn main-btn"><span>Далее</span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</modal>
+<!--apply-mod-->
+<modal class="modal apply-mod" id="apply-mod-step2">
+    <div class="custom-scroll modal__overlay">
+        <div class="modal__content">
+            <button type="button" class="btn btn-close"><svg><use xlink:href="img/svg/sprite.svg#close"></use></svg></button>
+            <div class="custom-scroll">
+                <div class="modal__top">
+                    <h3>Заявка на участие </h3>
+                </div>
+                <div class="form-progress">
+                    <div class="form-progress__item filled">
+                        <span>01</span>
+                        <span>Данные об участнике</span>
+                    </div>
+                    <span class="form-progress__line"></span>
+                    <div class="form-progress__item current">
+                        <span>02</span>
+                        <span>О проекте</span>
+                    </div>
+                    <span class="form-progress__line"></span>
+                    <div class="form-progress__item">
+                        <span>03</span>
+                        <span>Документы</span>
+                    </div>
+                </div>
+                <form class="apply-form" onsubmit="event.preventDefault();openModal(document.querySelector('#apply-mod-step3'))">
+                    <div class="item-form">
+                        <div class="item-form__lbl">Укажите индустрию, к которой Вы относитесь</div>
+                        <div class="dropdown modal-select radio-select" aria-expanded="false">
+                            <div class="dropdown__header">
+                                <span>Выберете индустрию</span>
+                                <svg><use xlink:href="img/svg/sprite.svg#chevron-bot"></use></svg>
+                            </div>
+                            <div class="dropdown__body">
+                                <div class="custom-scroll dropdown__options">
+                                    <label><input type="radio" name="industry" value="1"><span>ИТ и видеоигры</span></label>
+                                    <label><input type="radio" name="industry" value="2"><span>Мода</span></label>
+                                    <label><input type="radio" name="industry" value="3"><span>Ремёсла, НХП</span></label>
+                                    <label><input type="radio" name="industry" value="4"><span>Дизайн</span></label>
+                                    <label><input type="radio" name="industry" value="5"><span>Гастрономия</span></label>
+                                    <label><input type="radio" name="industry" value="6"><span>Исполнительские искусства</span></label>
+                                    <label><input type="radio" name="industry" value="7"><span>Изобразительное искусство</span></label>
+                                    <label><input type="radio" name="industry" value="8"><span>Развлечения и отдых</span></label>
+                                    <label><input type="radio" name="industry" value="9"><span>Реклама, маркетинг, PR</span></label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <span data-error></span>
+                    </div>
+                    <div class="item-form">
+                        <div class="item-form__lbl">Название вашего проекта/бизнеса</div>
+                        <input type="text" placeholder="Название проекта">
+                        <span data-error></span>
+                    </div>
+                    <div class="item-form">
+                        <div class="item-form__lbl">Описание вашего проекта/бизнеса, ссылки на сайт и соцсети</div>
+                        <textarea placeholder="Опишите ваш проект, его цель и ключевые особенности. Укажите, чем ваш проект уникален и какую проблему он решает.." oninput="this.style.height = '';this.style.height = this.scrollHeight + 'px'"></textarea>
+                        <span data-error></span>
+                    </div>
+                    <div class="form__footer">
+                        <div class="modal__btns">
+                            <button type="button" class="btn black-btn" onclick="openModal(document.querySelector('#apply-mod-step1'))"><span>Назад</span></button>
+                            <button type="submit" class="btn main-btn"><span>Далее</span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</modal>
+<!--apply-mod-->
+<modal class="modal apply-mod" id="apply-mod-step3">
+    <div class="custom-scroll modal__overlay">
+        <div class="modal__content">
+            <button type="button" class="btn btn-close"><svg><use xlink:href="img/svg/sprite.svg#close"></use></svg></button>
+            <div class="custom-scroll">
+                <div class="modal__top">
+                    <h3>Заявка на участие </h3>
+                </div>
+                <div class="form-progress">
+                    <div class="form-progress__item filled">
+                        <span>01</span>
+                        <span>Данные об участнике</span>
+                    </div>
+                    <span class="form-progress__line"></span>
+                    <div class="form-progress__item filled">
+                        <span>02</span>
+                        <span>О проекте</span>
+                    </div>
+                    <span class="form-progress__line"></span>
+                    <div class="form-progress__item current">
+                        <span>03</span>
+                        <span>Документы</span>
+                    </div>
+                </div>
+                <form class="apply-form" onsubmit="event.preventDefault();document.querySelectorAll('.apply-form').forEach(item => formSuccess(item));openSuccessMod('ваша заявка принята','Какой-нибудь текст, в котором указаны дальнейшие действия, куда обращаться может, если что-то непонятно')">
+                    <div class="item-form file-form" file-types="['image/png', 'image/jpeg', 'image/gif', 'application/pdf']">
+                        <div class="item-form__lbl">Загрузите, пожалуйста, справку, подтверждающую регистрацию юрлица или самозанятости в Нижегородской области</div>
+                        <div class="file-form__top">
+                            <label>
+                                <input type="file" multiple accept=".jpg,.jpeg,.gif,.png,.pdf">
+                                <span><svg><use xlink:href="img/svg/sprite.svg#upload"></use></svg>Прикрепить файл</span>
+                            </label>
+                            <div class="file-form__type">Допустимые форматы изображения: JPG, GIF, PNG, PDF.</div>
+                        </div>
+                        <span data-error></span>
+                        <div class="file-form__items"></div>
+                    </div>
+                    <div class="item-form file-form" file-types="['application/pdf', 'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation']">
+                        <div class="item-form__lbl">Презентация проекта/бизнес-идеи (необязательно)</div>
+                        <div class="file-form__top">
+                            <label>
+                                <input type="file" multiple accept=".pdf,.ppt,.pptx">
+                                <span><svg><use xlink:href="img/svg/sprite.svg#upload"></use></svg>Прикрепить файл</span>
+                            </label>
+                            <div class="file-form__type">Допустимые форматы изображения: PDF,PPT,PPTX.</div>
+                        </div>
+                        <span data-error></span>
+                        <div class="file-form__items"></div>
+                    </div>
+                    <div class="form__footer">
+                        <div class="item-form">
+                            <label class="item-checkbox">
+                                <input type="checkbox" name="agree" class="required">
+                                <span>Согласие на обработку персональных данных</span>
+                            </label>
+                            <span data-error></span>
+                        </div>
+                        <div class="modal__btns">
+                            <button type="button" class="btn black-btn" onclick="openModal(document.querySelector('#apply-mod-step2'))"><span>Назад</span></button>
+                            <button type="submit" class="btn main-btn"><span>Зарегистрироваться</span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</modal>
+<!--success-mod-->
+<modal class="modal success-mod" id="success-mod">
+    <div class="custom-scroll modal__overlay" id="error-mod">
+        <div class="modal__content">
+            <button type="button" class="btn btn-close"><svg><use xlink:href="img/svg/sprite.svg#close"></use></svg></button>
+            <div class="custom-scroll">
+                <div class="modal__top">
+                    <h3>ваша заявка принята</h3>
+                </div>
+                    <p>Какой-нибудь текст, в котором указаны дальнейшие действия, куда обращаться может, если что-то непонятно</p>
+                <button class="btn black-btn modal__close"><span>Ок</span></button>
+            </div>
+        </div>
+    </div>
+</modal>
+<!--error-mod-->
+<modal class="modal error-mod" id="error-mod">
+    <div class="custom-scroll modal__overlay">
+        <div class="modal__content">
+            <button type="button" class="btn btn-close"><svg><use xlink:href="img/svg/sprite.svg#close"></use></svg></button>
+            <div class="custom-scroll">
+                <div class="modal__top">
+                    <h3>Ошибка</h3>
+                    <p>Ваша заявка не была отправлена. Попробуйте снова</p>
+                </div>
+                <button class="btn main-btn modal__close"><span>Попробовать снова</span></button>
+            </div>
+        </div>
+    </div>
+</modal>

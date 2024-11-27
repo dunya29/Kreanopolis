@@ -1,0 +1,58 @@
+:root {
+    --content-width: 1360px;
+    --container-offset: 20px;
+    --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+    --font-family: "Gramatika", sans-serif;
+    --font-size-h3-m: 45px;
+    --font-size-h3-s: 40px;
+    --black-color: #111111;
+    --white-color: #FFFFFF;
+    --primary-color: #8120A5;
+    --primary-hover-color: #691887;
+    --secondary-color: #6C4FE4;
+    --secondary-hover-color: #3615be;
+    --gray-color: rgba(17, 17, 17, 0.4);
+    --dark-gray-color: #818181;
+    --error-color: #E63811;
+}
+/* @media (max-width: 1700px) {
+    :root {
+        --content-width: 1400px;
+    }
+}
+@media (max-width: 1450px) {
+    :root {
+        --content-width: 1200px;
+    }
+}
+@media (max-width: 1250px) {
+    :root {
+        --content-width: 920px;
+    }
+}
+@media (max-width: 960px) {
+    :root {
+        --content-width: 720px;
+    }
+}*/
+$bp1: 1450.98px;
+$bp2: 1250.98px;
+$bp3: 767.98px;
+$bp4: 575.98px;
+$bp5: 479.98px;
+$bp6: 370.98px;
+
+@media (max-width: $bp1) {
+    :root {
+        --font-size-h3-m: 38px;
+        --font-size-h3-s: 32px;
+    }
+}
+@media (max-width: $bp2) {
+    :root {
+         --content-width: 952px;
+        --container-offset: 15px;
+        --font-size-h3-m: 32px;
+        --font-size-h3-s: 28px;
+    }
+} 

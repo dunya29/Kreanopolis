@@ -1,0 +1,194 @@
+.first-sec {
+    .container {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        position: relative;
+    }
+    @media (min-height: 950px) {
+        .container {
+            min-height: 950px;
+        }
+    }
+}
+.intro {
+    .sec-bg--1 {
+        top: 50%;
+        right: -21.5%;
+        transform: translateY(-48.5%);
+    }
+    .sec-bg--2 {
+        left: -49%;
+        transform: translateY(-35%);
+    }
+    &__content {
+        padding: 280px 0 250px;
+    }
+    &__title {
+        svg:first-child {
+            width: 100%;
+            height: auto;
+            padding-right: 125px;
+        }
+        svg:nth-child(2) {
+            max-width: 57.7%;
+            height: auto;
+            margin-left: auto;
+        }
+    }
+    &__reg {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 40px;
+        align-items: start;
+        .h4 {
+            font-weight: 400;
+            max-width: 462px;
+            align-self: center;
+        }
+    }
+    @media (max-width: $bp1) {
+        .sec-bg--1 {
+            right: -32%;
+        }
+        .sec-bg--2 {
+            transform: translateY(-39%) scale(0.8);
+        }
+        &__reg {
+            .h4 {
+                max-width: 440px;
+            }
+        }
+    }
+    @media (max-width: $bp2) {
+        .sec-bg--1 {
+            right: -40%;
+        }
+        .sec-bg--2 {
+            left: -55%;
+            transform: translateY(-33%) scale(0.8);
+        }
+        &__title {
+            svg {
+                &:first-child {
+                    padding-right: 40px;
+                }
+            }
+        }
+        &__reg {
+            .h4 {
+                font-size: 20px;
+                max-width: 360px;
+            }
+        }
+    }
+    @media (max-width: $bp3) {
+        .sec-bg--1 {
+            right: -20%;
+            transform: translateX(-0%) translateY(-21.5%);
+            width: 180%;
+            max-width: 650px;
+        }
+        .sec-bg--2 {
+            left: -60%;
+            transform: translateY(-33%) scale(1);
+        }
+        &__content {
+            padding: 220px 0 350px;
+        }
+        &__reg {
+            gap: 20px;
+        }
+    }
+    @media (max-width: $bp4) {
+        .sec-bg--1 {
+            right: -30%;
+        }
+        &__reg {
+            grid-template-columns: 1fr;
+        }
+    }
+    @media (max-width: $bp5) {
+        .sec-bg--1 {
+            right: -50%;
+        }
+        .sec-bg--2 {
+            left: -79%;
+            transform: translateY(-23%) scale(1.8);
+        }
+    }
+}
+.notfound {
+    h1 {
+        text-transform: lowercase;
+    }
+    .sec-bg {
+        max-width: 1200px;
+        left: 130%;
+        transform: translateY(-23%);
+    }
+    .sec-inner {
+        position: relative;
+    }
+    &__content {
+        padding: 200px 0 250px;
+        h1 {
+            margin-bottom: 30px;
+        }
+        p {
+            font-size: 20px;
+            max-width: 250px;
+            margin-bottom: 40px;
+        }
+        .main-btn {
+            min-width: 277px;
+        }
+    }
+    @media (max-width: $bp1) {
+        &__content {
+            p {
+                font-size: 18px;
+            }
+        }
+    }
+    @media (max-width: $bp2) {
+        .sec-bg {
+            max-width: 900px;
+            transform: translateY(-18%);
+        }
+    }
+    @media (max-width: 992.98px) {
+        .sec-bg {
+            max-width: 700px;
+            left: 120%;
+            transform: translateY(-10%);
+        }
+    }
+    @media (max-width: $bp3) {
+        .sec-inner {
+            padding-bottom: 150px;
+        }
+        .sec-bg {
+            top: auto;
+            bottom: 0;
+            left: 50%;
+            width: 170%;
+            transform: translate(-25%, 0%);
+        }
+        &__content {
+            padding: 100px 0 250px;
+        }
+    }
+    @media (max-width: $bp4) {
+        &__content {
+            p {
+                max-width: 100%;
+            }
+            .main-btn {
+                width: 100%;
+            }
+        }
+    }
+}
