@@ -615,7 +615,7 @@ if (itemProgram) {
 		tl.fromTo(item,
 			{
 				y: 80,
-				opacity: 0,
+				opacity: 0.6,
 			},
 			{
 				y: 0,
