@@ -947,7 +947,12 @@ h6,
 }
 
 .item-checkbox span a {
+  color: var(--primary-color);
   display: contents;
+}
+
+.item-checkbox span a:hover {
+  color: var(--primary-hover-color);
 }
 
 .item-checkbox span:before,

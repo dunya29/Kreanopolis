@@ -589,7 +589,11 @@ h6,
         padding-left: 26px;
         position: relative;
         a {
+            color: var(--primary-color);
             display: contents;
+            &:hover {
+                color: var(--primary-hover-color);
+            }
         }
         &:before,
         &:after {
