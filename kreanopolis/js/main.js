@@ -233,6 +233,7 @@ function setActiveOption(item) {
 	if (item.classList.contains("radio-select")) {
 		let activeInpTxt = item.querySelector("input:checked").nextElementSibling.innerHTML
 		item.querySelector(".dropdown__header span").innerHTML = activeInpTxt
+		closeDropdown(item)
 	}
 }
 //close dropdonw
@@ -277,6 +278,9 @@ function openErrorMod(title = false, txt = false, btnTxt = false) {
 // formSuccess
 function formSuccess(form) {
 	form.querySelectorAll(".item-form").forEach(item => item.classList.remove("error"))
+	if (form.querySelector('[data-error]')) {
+		form.querySelectorAll("[data-error]").forEach(item => item.textContent = '')
+	}
 	form.querySelectorAll("input").forEach(inp => {
 		if (!["hidden", "checkbox", "radio"].includes(inp.type)) {
 			inp.value = ""
@@ -287,6 +291,7 @@ function formSuccess(form) {
 	})
 	if (form.querySelector("textarea")) {
 		form.querySelector("textarea").value = ""
+		form.querySelector("textarea").style.height = null
 	}
 	if (form.querySelector(".file-form__items")) {
 		form.querySelector(".file-form__items").innerHTML = ""
