@@ -508,7 +508,7 @@
                     </div>
                 </div>
                 <form class="apply-form" onsubmit="event.preventDefault();document.querySelectorAll('.apply-form').forEach(item => formSuccess(item));openSuccessMod('ваша заявка принята','Какой-нибудь текст, в котором указаны дальнейшие действия, куда обращаться может, если что-то непонятно')">
-                    <div class="item-form file-form" file-types="['image/png', 'image/jpeg', 'image/gif', 'application/pdf']">
+                    <div class="item-form file-form" data-types="['image/png', 'image/jpeg', 'image/gif', 'application/pdf']">
                         <div class="item-form__lbl">Загрузите, пожалуйста, справку, подтверждающую регистрацию юрлица или самозанятости в Нижегородской области</div>
                         <div class="file-form__top">
                             <label>
@@ -520,7 +520,7 @@
                         <span data-error></span>
                         <div class="file-form__items"></div>
                     </div>
-                    <div class="item-form file-form" file-types="['application/pdf', 'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation']">
+                    <div class="item-form file-form" data-types="['application/pdf', 'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation']">
                         <div class="item-form__lbl">Презентация проекта/бизнес-идеи (необязательно)</div>
                         <div class="file-form__top">
                             <label>

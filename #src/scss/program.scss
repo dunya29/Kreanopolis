@@ -150,7 +150,10 @@
         .item-stage__ball {
             box-shadow: inset 0 4px 4px 0 rgba(138, 95, 215, 0.8);
             background: linear-gradient(179deg, #e5dbe1 0%, #5c399b 93.39%);
-            animation: bounce-in-right 1s ease-out both;
+            animation: bounce-in-right 1s ease-out both !important;
+            @media (max-width: $bp3) {
+                animation: bounce-in-top 1s ease-out both !important;
+            }
         }
     }
     &__date {
@@ -241,5 +244,21 @@
     }
     100% {
         left: 0;
+    }
+}
+@keyframes bounce-in-top {
+    0% {
+        opacity: 0;
+        top: -100%;
+    }
+    60% {
+        opacity: 1;
+        top: 30px;
+    }
+    80% {
+        top: -10px;
+    }
+    100% {
+        top: 0;
     }
 }

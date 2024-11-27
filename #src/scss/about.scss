@@ -187,7 +187,7 @@
         position: relative;
     }
     .sec-bg {
-        right: -1.4%;
+        right: -4.2%;
         transform: translateY(-20%);
     }
     @media (max-width: $bp1) {
@@ -207,7 +207,7 @@
     @media (max-width: 992.98px) {
         .sec-bg {
             right: -21%;
-            transform: translateY(-24%) scale(0.65);
+            transform: translateY(-26%) scale(0.65);
         }
     }
     @media (max-width: $bp3) {
@@ -218,7 +218,7 @@
             right: 50%;
             width: 180%;
             max-width: 500px;
-            transform: translate(47.5%, 84%);
+            transform: translate(50%, 85%);
         }
     }
 }

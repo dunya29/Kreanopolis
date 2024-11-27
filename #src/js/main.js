@@ -306,7 +306,7 @@ if (inp) {
 }
 //file-form
 function addFile(files, item) {
-	let fileTypes = item.getAttribute("file-types")
+	let fileTypes = item.getAttribute("data-types")
 	for (let i = 0; i < files.length; i++) {
 		let file = files[i]
 		if (file.size > 10 * 1024 * 1024) {
@@ -494,13 +494,13 @@ if (stagesSec && itemStages.length > 0) {
 			ease: "none"
 		}, 0)
 	});
- 	itemStages.forEach(item => {
+ 	/* itemStages.forEach(item => {
 		mm.add("(max-width: 767.98px)", () => {
 			gsap.to(item, {
 				scrollTrigger: {
 					trigger: item,
 					scrub: true,
-					start: "top 40px top",
+					start: "center center",
 					invalidateOnRefresh: true,
 					onUpdate: (self) => {
 						itemStages.forEach(item => item.classList.remove("active"))
@@ -509,7 +509,30 @@ if (stagesSec && itemStages.length > 0) {
 				}
 			})
 		});
-	})
+	}) */
+/* const d = {value: 1000}
+	mm.add("(max-width: 767.98px)", () => {
+		let activeIndex = { value: 0 }
+		let tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: stagesSec,
+				pin: true,
+				scrub: true,
+				start: "top top",
+				invalidateOnRefresh: true,
+				end: "+=" + 300 * slideCount,
+				onUpdate: (self) => {
+					header.classList.add(".unshow")
+					//stagesSec.querySelector(".stages-sec__items").style.transform = `translateY(${activeIndex.value}px)`
+				} 
+			}
+		})
+		tl.to(stagesSec.querySelector(".stages-sec__items"), {
+			//yPercent: -100,
+			y: -stagesSec.querySelector(".stages-sec__items").scrollHeight + window.innerHeight,
+			ease: "none"
+		})
+	}); */
 
 }
 //intro title animation

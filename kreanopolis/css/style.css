@@ -1490,7 +1490,7 @@ h6,
 }
 
 .participants .sec-bg {
-  right: -1.4%;
+  right: -4.2%;
   -webkit-transform: translateY(-20%);
   -ms-transform: translateY(-20%);
   transform: translateY(-20%);
@@ -1875,8 +1875,8 @@ h6,
   -webkit-box-shadow: inset 0 4px 4px 0 rgba(138, 95, 215, 0.8);
   box-shadow: inset 0 4px 4px 0 rgba(138, 95, 215, 0.8);
   background: linear-gradient(179deg, #e5dbe1 0%, #5c399b 93.39%);
-  -webkit-animation: bounce-in-right 1s ease-out both;
-  animation: bounce-in-right 1s ease-out both;
+  -webkit-animation: bounce-in-right 1s ease-out both !important;
+  animation: bounce-in-right 1s ease-out both !important;
 }
 
 .item-stage__date {
@@ -1968,6 +1968,46 @@ h6,
 
   100% {
     left: 0;
+  }
+}
+
+@-webkit-keyframes bounce-in-top {
+  0% {
+    opacity: 0;
+    top: -100%;
+  }
+
+  60% {
+    opacity: 1;
+    top: 30px;
+  }
+
+  80% {
+    top: -10px;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes bounce-in-top {
+  0% {
+    opacity: 0;
+    top: -100%;
+  }
+
+  60% {
+    opacity: 1;
+    top: 30px;
+  }
+
+  80% {
+    top: -10px;
+  }
+
+  100% {
+    top: 0;
   }
 }
 
@@ -2875,9 +2915,9 @@ h6,
 
   .participants .sec-bg {
     right: -21%;
-    -webkit-transform: translateY(-24%) scale(0.65);
-    -ms-transform: translateY(-24%) scale(0.65);
-    transform: translateY(-24%) scale(0.65);
+    -webkit-transform: translateY(-26%) scale(0.65);
+    -ms-transform: translateY(-26%) scale(0.65);
+    transform: translateY(-26%) scale(0.65);
   }
 }
 
@@ -3013,9 +3053,9 @@ h6,
     right: 50%;
     width: 180%;
     max-width: 500px;
-    -webkit-transform: translate(47.5%, 84%);
-    -ms-transform: translate(47.5%, 84%);
-    transform: translate(47.5%, 84%);
+    -webkit-transform: translate(50%, 85%);
+    -ms-transform: translate(50%, 85%);
+    transform: translate(50%, 85%);
   }
 
   .speakers .sec-top {
@@ -3109,6 +3149,11 @@ h6,
 
   .stages-sec__items {
     display: block;
+  }
+
+  .item-stage.active .item-stage__ball {
+    -webkit-animation: bounce-in-top 1s ease-out both !important;
+    animation: bounce-in-top 1s ease-out both !important;
   }
 
   .item-stage {
