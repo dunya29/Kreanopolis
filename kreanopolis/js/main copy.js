@@ -431,35 +431,33 @@ const stickyItem = document.querySelector(".advant-sec .sec-title")
 const scrollItems = document.querySelector(".advant-sec__scroll")
 if (advantSec) {
 	function fixedItem() {
-		if (window.innerWidth > 767.98) {
-			stickyParent.style.position = "relative"
-			stickyItem.style.maxWidth = stickyParent.clientWidth + "px"
-			if (scrollItems.scrollHeight > stickyItem.clientHeight) {
-				window.addEventListener("scroll", () => {
-					let itemTitleHeight = stickyItem.clientHeight
-					let scrollItemsTop = scrollPos() + scrollItems.getBoundingClientRect().top
-					let scrollItemsBottom = scrollItemsTop + scrollItems.offsetHeight - itemTitleHeight
-					if (scrollPos() > scrollItemsTop && scrollPos() < scrollItemsBottom) {
-						stickyItem.style.position = "fixed"
-						stickyItem.style.top = "0"
-						stickyItem.style.bottom = "auto"
-						header.classList.add("unshow")
-					} else if (scrollPos() < scrollItemsTop) {
-						stickyItem.style.position = "absolute"
-						stickyItem.style.top = "0"
-						stickyItem.style.bottom = "auto"
-					} else if (scrollPos() > scrollItemsBottom) {
-						stickyItem.style.position = "absolute"
-						stickyItem.style.top = "auto"
-						stickyItem.style.bottom = "0"
-					}
-					if (scrollItems.getBoundingClientRect().top < 0 && (scrollItems.getBoundingClientRect().bottom - window.innerHeight) > 0) {
-						scrollItems.classList.add("extra")
-					} else {
-						scrollItems.classList.remove("extra")
-					}
-				})
-			}
+		stickyParent.style.position = "relative"
+		stickyItem.style.maxWidth = stickyParent.clientWidth + "px"
+		if (scrollItems.scrollHeight > stickyItem.clientHeight) {
+			window.addEventListener("scroll", () => {
+				let itemTitleHeight = stickyItem.clientHeight
+				let scrollItemsTop = scrollPos() + scrollItems.getBoundingClientRect().top
+				let scrollItemsBottom = scrollItemsTop + scrollItems.offsetHeight - itemTitleHeight
+				if (scrollPos() > scrollItemsTop && scrollPos() < scrollItemsBottom) {
+					stickyItem.style.position = "fixed"
+					stickyItem.style.top = "0"
+					stickyItem.style.bottom = "auto"
+					header.classList.add("unshow")
+				} else if (scrollPos() < scrollItemsTop) {
+					stickyItem.style.position = "absolute"
+					stickyItem.style.top = "0"
+					stickyItem.style.bottom = "auto"
+				} else if (scrollPos() > scrollItemsBottom) {
+					stickyItem.style.position = "absolute"
+					stickyItem.style.top = "auto"
+					stickyItem.style.bottom = "0"
+				}
+				if (scrollItems.getBoundingClientRect().top < 0 && (scrollItems.getBoundingClientRect().bottom - window.innerHeight) > 0) {
+					scrollItems.classList.add("extra")
+				} else {
+					scrollItems.classList.remove("extra")
+				}
+			})
 		}
 	}
 	fixedItem()
@@ -480,6 +478,9 @@ if (stagesSec && itemStages.length > 0) {
 				scrub: true,
 				start: "top 15% center",
 				invalidateOnRefresh: true,
+				/* end: () => {
+					"+=" + stagesSec.querySelector(".stages-sec__items").offsetWidth
+				}, */
 				end: "+=" + 800 * slideCount,
 				onUpdate: (self) => {
 					itemStages.forEach(item => item.classList.remove("active"))
@@ -496,7 +497,7 @@ if (stagesSec && itemStages.length > 0) {
 			ease: "none"
 		}, 0)
 	});
-	itemStages.forEach(item => {
+	 itemStages.forEach(item => {
 		mm.add("(max-width: 767.98px)", () => {
 			gsap.to(item, {
 				scrollTrigger: {
@@ -510,9 +511,44 @@ if (stagesSec && itemStages.length > 0) {
 						item.classList.add("active")
 					}
 				}
-			})
+			}) 
 		});
-	})
+	}) 
+	/* mm.add("(max-width: 767.98px)", () => {
+		let activeIndex = { value: 0 }
+		let tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: stagesSec,
+				pin: true,
+				scrub: true,
+				start: "top top",
+				invalidateOnRefresh: true,
+				end: "+=" + 300 * slideCount,
+				onUpdate: (self) => {
+					setTimeout(() => {
+						header.classList.add("unshow")
+						if (document.querySelector(".fixed-sec")) {
+							document.querySelector(".fixed-sec").classList.remove("show")
+						}
+					}, 0);
+					stagesSec.querySelector(".sec-top").classList.add("light-bg")
+					itemStages.forEach(item => item.classList.remove("active"))
+					itemStages[Math.round(activeIndex.value)].classList.add("active")
+					if (self.progress == 0 || self.progress == 1) {
+						stagesSec.querySelector(".sec-top").classList.remove("light-bg")
+					}
+				}
+			}
+		})
+		tl.to(stagesSec.querySelector(".stages-sec__items"), {
+			y: -Math.abs(stagesSec.querySelector(".stages-sec__items").scrollHeight - stagesSec.querySelector(".sec-inner").clientHeight + itemStages[slideCount-1].clientHeight),
+			ease: "none"
+		})
+		tl.to(activeIndex, {
+			value: slideCount - 1,
+			ease: "none"
+		}, 0)
+	});  */
 }
 //intro title animation
 const introTitle = document.querySelectorAll(".intro__title svg")

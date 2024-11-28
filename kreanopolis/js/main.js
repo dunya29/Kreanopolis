@@ -116,21 +116,22 @@ if (isFirefox && customScroll) {
 if (document.querySelector(".js-anchor")) {
 	document.querySelectorAll(".js-anchor").forEach(item => {
 		item.addEventListener("click", e => {
-			e.preventDefault()
 			let idx = item.getAttribute("href").indexOf("#")
 			const href = item.getAttribute("href").substring(idx)
 			let dest = document.querySelector(href)
-			let diff = 0
-			destPos = dest.getBoundingClientRect().top < 0 ? dest.getBoundingClientRect().top - header.clientHeight - 10 : dest.getBoundingClientRect().top - 10
-			if (iconMenu.classList.contains("active")) {
-				iconMenu.click()
-				setTimeout(() => {
+			if (dest) {
+				e.preventDefault()
+				let diff = 0
+				destPos = dest.getBoundingClientRect().top < 0 ? dest.getBoundingClientRect().top - header.clientHeight - 10 : dest.getBoundingClientRect().top - 10
+				if (iconMenu.classList.contains("active")) {
+					iconMenu.click()
+					setTimeout(() => {
+						window.scrollTo({ top: scrollPos() - diff + destPos, behavior: 'smooth' })
+					}, 300);
+				} else {
 					window.scrollTo({ top: scrollPos() - diff + destPos, behavior: 'smooth' })
-				}, 300);
-			} else {
-				window.scrollTo({ top: scrollPos() - diff + destPos, behavior: 'smooth' })
+				}
 			}
-
 		})
 	})
 }
@@ -423,39 +424,42 @@ if (section && section[1]) {
 	showFixedSec()
 	window.addEventListener("scroll", showFixedSec)
 }
+//advant title sticky at top
 const advantSec = document.querySelector(".advant-sec")
 const stickyParent = document.querySelector(".advant-sec__sticky")
 const stickyItem = document.querySelector(".advant-sec .sec-title")
 const scrollItems = document.querySelector(".advant-sec__scroll")
 if (advantSec) {
 	function fixedItem() {
-		stickyParent.style.position = "relative"
-		stickyItem.style.maxWidth = stickyParent.clientWidth + "px"
-		if (scrollItems.scrollHeight > stickyItem.clientHeight) {
-			window.addEventListener("scroll", () => {
-				let itemTitleHeight = stickyItem.clientHeight
-				let scrollItemsTop = scrollPos() + scrollItems.getBoundingClientRect().top
-				let scrollItemsBottom = scrollItemsTop + scrollItems.offsetHeight - itemTitleHeight
-				if (scrollPos() > scrollItemsTop && scrollPos() < scrollItemsBottom) {
-					stickyItem.style.position = "fixed"
-					stickyItem.style.top = "0"
-					stickyItem.style.bottom = "auto"
-					header.classList.add("unshow")
-				} else if (scrollPos() < scrollItemsTop) {
-					stickyItem.style.position = "absolute"
-					stickyItem.style.top = "0"
-					stickyItem.style.bottom = "auto"
-				} else if (scrollPos() > scrollItemsBottom) {
-					stickyItem.style.position = "absolute"
-					stickyItem.style.top = "auto"
-					stickyItem.style.bottom = "0"
-				}
-				if (scrollItems.getBoundingClientRect().top < 0 && (scrollItems.getBoundingClientRect().bottom - window.innerHeight) > 0) {
-					scrollItems.classList.add("extra")
-				} else {
-					scrollItems.classList.remove("extra")
-				}
-			})
+		if (window.innerWidth > 767.98) {
+			stickyParent.style.position = "relative"
+			stickyItem.style.maxWidth = stickyParent.clientWidth + "px"
+			if (scrollItems.scrollHeight > stickyItem.clientHeight) {
+				window.addEventListener("scroll", () => {
+					let itemTitleHeight = stickyItem.clientHeight
+					let scrollItemsTop = scrollPos() + scrollItems.getBoundingClientRect().top
+					let scrollItemsBottom = scrollItemsTop + scrollItems.offsetHeight - itemTitleHeight
+					if (scrollPos() > scrollItemsTop && scrollPos() < scrollItemsBottom) {
+						stickyItem.style.position = "fixed"
+						stickyItem.style.top = "0"
+						stickyItem.style.bottom = "auto"
+						header.classList.add("unshow")
+					} else if (scrollPos() < scrollItemsTop) {
+						stickyItem.style.position = "absolute"
+						stickyItem.style.top = "0"
+						stickyItem.style.bottom = "auto"
+					} else if (scrollPos() > scrollItemsBottom) {
+						stickyItem.style.position = "absolute"
+						stickyItem.style.top = "auto"
+						stickyItem.style.bottom = "0"
+					}
+					if (scrollItems.getBoundingClientRect().top < 0 && (scrollItems.getBoundingClientRect().bottom - window.innerHeight) > 0) {
+						scrollItems.classList.add("extra")
+					} else {
+						scrollItems.classList.remove("extra")
+					}
+				})
+			}
 		}
 	}
 	fixedItem()
@@ -466,6 +470,7 @@ const stagesSec = document.querySelector(".stages-sec")
 const itemStages = document.querySelectorAll(".item-stage")
 if (stagesSec && itemStages.length > 0) {
 	let slideCount = itemStages.length
+	itemStages[0].classList.add("active")
 	mm.add("(min-width: 767.98px)", () => {
 		let activeIndex = { value: 0 }
 		let tl = gsap.timeline({
@@ -475,9 +480,6 @@ if (stagesSec && itemStages.length > 0) {
 				scrub: true,
 				start: "top 15% center",
 				invalidateOnRefresh: true,
-				/* end: () => {
-					"+=" + stagesSec.querySelector(".stages-sec__items").offsetWidth
-				}, */
 				end: "+=" + 800 * slideCount,
 				onUpdate: (self) => {
 					itemStages.forEach(item => item.classList.remove("active"))
@@ -494,13 +496,14 @@ if (stagesSec && itemStages.length > 0) {
 			ease: "none"
 		}, 0)
 	});
- 	/* itemStages.forEach(item => {
+	itemStages.forEach(item => {
 		mm.add("(max-width: 767.98px)", () => {
 			gsap.to(item, {
 				scrollTrigger: {
 					trigger: item,
 					scrub: true,
-					start: "center center",
+					start: "top 100px",
+					end: "bottom center",
 					invalidateOnRefresh: true,
 					onUpdate: (self) => {
 						itemStages.forEach(item => item.classList.remove("active"))
@@ -509,31 +512,7 @@ if (stagesSec && itemStages.length > 0) {
 				}
 			})
 		});
-	}) */
-/* const d = {value: 1000}
-	mm.add("(max-width: 767.98px)", () => {
-		let activeIndex = { value: 0 }
-		let tl = gsap.timeline({
-			scrollTrigger: {
-				trigger: stagesSec,
-				pin: true,
-				scrub: true,
-				start: "top top",
-				invalidateOnRefresh: true,
-				end: "+=" + 300 * slideCount,
-				onUpdate: (self) => {
-					header.classList.add(".unshow")
-					//stagesSec.querySelector(".stages-sec__items").style.transform = `translateY(${activeIndex.value}px)`
-				} 
-			}
-		})
-		tl.to(stagesSec.querySelector(".stages-sec__items"), {
-			//yPercent: -100,
-			y: -stagesSec.querySelector(".stages-sec__items").scrollHeight + window.innerHeight,
-			ease: "none"
-		})
-	}); */
-
+	})
 }
 //intro title animation
 const introTitle = document.querySelectorAll(".intro__title svg")
@@ -601,8 +580,6 @@ if (secTitles) {
 				opacity: 1,
 				duration: .4,
 				delay: index => index * 0.03
-				/* duration: .5,
-				delay: index => index * 0.05 */
 			}
 		)
 	})
@@ -625,6 +602,7 @@ if (splitList) {
 		})
 	})
 }
+//program anim
 const itemProgram = document.querySelectorAll(".item-program")
 if (itemProgram) {
 	itemProgram.forEach(item => {
