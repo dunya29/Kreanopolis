@@ -121,7 +121,8 @@
                     </div>
                     <div class="item-form">
                         <div class="item-form__lbl">Описание вашего проекта/бизнеса, ссылки на сайт и соцсети</div>
-                        <textarea placeholder="Опишите ваш проект, его цель и ключевые особенности. Укажите, чем ваш проект уникален и какую проблему он решает.." oninput="this.style.height = '';this.style.height = this.scrollHeight + 'px'"></textarea>
+                        <textarea placeholder="Опишите ваш проект, его цель и ключевые особенности. Укажите, чем ваш проект уникален и какую проблему он решает.."
+                            oninput="this.style.height = '';this.style.height = this.scrollHeight + 'px'"></textarea>
                         <span data-error></span>
                     </div>
                     <div class="form__footer">
@@ -160,7 +161,8 @@
                         <span>Документы</span>
                     </div>
                 </div>
-                <form class="apply-form" onsubmit="event.preventDefault();document.querySelectorAll('.apply-form').forEach(item => formSuccess(item));openSuccessMod('ваша заявка принята','Какой-нибудь текст, в котором указаны дальнейшие действия, куда обращаться может, если что-то непонятно')">
+                <form class="apply-form"
+                    onsubmit="event.preventDefault();document.querySelectorAll('.apply-form').forEach(item => formSuccess(item));openSuccessMod('ваша заявка принята','Какой-нибудь текст, в котором указаны дальнейшие действия, куда обращаться может, если что-то непонятно')">
                     <div class="item-form file-form" data-types="['image/png', 'image/jpeg', 'image/gif', 'application/pdf']">
                         <div class="item-form__lbl">Загрузите, пожалуйста, справку, подтверждающую регистрацию юрлица или самозанятости в Нижегородской области</div>
                         <div class="file-form__top">
@@ -173,7 +175,8 @@
                         <span data-error></span>
                         <div class="file-form__items"></div>
                     </div>
-                    <div class="item-form file-form" data-types="['application/pdf', 'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation']">
+                    <div class="item-form file-form"
+                        data-types="['application/pdf', 'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation']">
                         <div class="item-form__lbl">Презентация проекта/бизнес-идеи (необязательно)</div>
                         <div class="file-form__top">
                             <label>
@@ -189,7 +192,7 @@
                         <div class="item-form">
                             <label class="item-checkbox">
                                 <input type="checkbox" name="agree" class="required">
-                                <span>Согласие на обработку <a href="#"target="_blank">персональных данных</a></span>
+                                <span>Согласие на обработку <a href="#" target="_blank">персональных данных</a></span>
                             </label>
                             <span data-error></span>
                         </div>
@@ -203,6 +206,99 @@
         </div>
     </div>
 </modal>
+<!--apply-mod-->
+<modal class="modal criteries-mod" id="criteries-mod">
+    <div class="custom-scroll modal__overlay">
+        <div class="modal__content">
+            <button type="button" class="btn btn-close"><svg><use xlink:href="img/svg/sprite.svg#close"></use></svg></button>
+            <div class="custom-scroll">
+                <div class="modal__top">
+                    <h3>Положениe о критериях отбора участников </h3>
+                </div>
+                <div class="page-content">
+                    <ol>
+                        <li>
+                            <h6>1. Наличие бизнес-проекта в сфере креативных индустрий</h6>
+                            <ul>
+                                <li>Проект должен принадлежать к одной из следующих отраслей креативных индустрий: ИТ, мода, гастрономия, дизайн, медиа, искусство, ремесла
+                                    и нхп, архитектура, издательское дело и т.д.</li>
+                                <li>Предпочтение может быть отдано проектам, которые уже находятся в стадии реализации (имеют продукт, услугу или аудиторию).</li>
+                                <li>Количество участников от одной организации ограничено. В проекте могут принять участие основатели и владельцы бизнеса, а также наиболее
+                                    значимые представители, способствующие принятию решений.</li>
+                                <li>Проекты, зарегистрированные в реестре СМСП, рассматриваются с преимуществом.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h6>2. Годовой оборот бизнеса</h6>
+                            <ul>
+                                <li>Наличие стабильного годового оборота или его прогнозируемое достижение за текущий год.</li>
+                                <li>Допустимый уровень годового оборота должен соответствовать целям акселератора.</li>
+                                <li>Стартапы на начальной стадии при наличии проработанного бизнес-плана также могут принимать участие в проекте.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h6>3. План развития бизнеса</h6>
+                            <ul>
+                                <li>Наличие четкого и проработанного плана развития бизнеса с обозначенными целями, миссией, задачами, целевой аудиторией и стратегией
+                                    масштабирования.</li>
+                                <li>Готовность участника:
+                                    <ul>
+                                        <li>Выполнять задания и рекомендации наставников и экспертов.</li>
+                                        <li>Посещать все очные и оффлайн мероприятия проекта.</li>
+                                        <li>Вкладывать время и усилия в развитие проекта на протяжении всей программы.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h6>4. Предпринимательский опыт</h6>
+                            <ul>
+                                <li>Необходимо наличие опыта в ведении бизнеса или в реализации проектов в сфере креативных индустрий.</li>
+                                <li>Участник может быть:
+                                    <ul>
+                                        <li>Действующим предпринимателем.</li>
+                                        <li>Лидером креативного стартапа.</li>
+                                        <li>Индивидуальным предпринимателем, имеющим опыт работы над аналогичными проектами.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <p><span style="color: #818181;">* Организаторы оставляют за собой возможность рассмотреть к участию в проекте участников с проработанной
+                                    бизнес-идеей без официальной
+                                    регистрации бизнеса, если проект перспективен.</span></p>
+                        </li>
+                        <li>
+                            <h6>5. Региональная ориентация</h6>
+                            <ul>
+                                <li>Готовность развивать свой проект в регионе, в котором проводится акселератор.</li>
+                                <li>Готовность к взаимодействию с местным сообществом, партнерами и рынком.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h6>6. Позитивный настрой и мотивация</h6>
+                            <ul>
+                                <li>Участник должен демонстрировать:</li>
+                                <ul>
+                                    <li>Высокую мотивацию для обучения и развития.</li>
+                                    <li>Готовность к сотрудничеству и командной работе.</li>
+                                    <li>Открытость к внедрению новых подходов и инструментов.</li>
+                                </ul>
+                            </ul>
+                        </li>
+                        <li>
+                            <h6>7. Социальная значимость или инновационный потенциал проекта</h6>
+                            <ul>
+                                <li>Проект может включать элементы социальной или экологической ответственности.</li>
+                                <li>Преимущество получают проекты, использующие инновационные технологии, подходы или продукты, которые повышают ценность и
+                                    конкурентоспособность.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                <button class="btn main-btn modal__close"><span>Закрыть</span></button>
+            </div>
+        </div>
+    </div>
+</modal>
 <!--success-mod-->
 <modal class="modal success-mod" id="success-mod">
     <div class="custom-scroll modal__overlay" id="error-mod">
@@ -212,7 +308,7 @@
                 <div class="modal__top">
                     <h3>ваша заявка принята</h3>
                 </div>
-                    <p>Какой-нибудь текст, в котором указаны дальнейшие действия, куда обращаться может, если что-то непонятно</p>
+                <p>Какой-нибудь текст, в котором указаны дальнейшие действия, куда обращаться может, если что-то непонятно</p>
                 <button class="btn black-btn modal__close"><span>Ок</span></button>
             </div>
         </div>

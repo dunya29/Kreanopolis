@@ -302,12 +302,64 @@
                         </div>
                     </div>
                 </section>
+                <!--present-block-->
+                <section class="section present-block">
+                    <div class="container">
+                        <div class="sec-inner">
+                            <div class="sec-top">
+                                <h3 class="sec-title">Подарок</h3>
+                            </div>
+                            <div class="present-block__row">
+                                <div class="sec-content">
+                                    <h5>По результатом прохождения акселератора лучший проект получит подарок от агентства Norma — cертификат на обучение в школе управления
+                                        Сколково.</h5>
+                                    <h5>А также разработку брендбука от агентства Norma. </h5>
+                                    <p class="h5">В брендбук входят:</p>
+                                    <ul class="star-list split-list">
+                                        <li>
+                                            <svg><use xlink:href="img/svg/sprite.svg#star"></use></svg>
+                                            <span>Логотип</span>
+                                        </li>
+                                        <li>
+                                            <svg><use xlink:href="img/svg/sprite.svg#star"></use></svg>
+                                            <span>Цветовая палитра</span>
+                                        </li>
+                                        <li>
+                                            <svg><use xlink:href="img/svg/sprite.svg#star"></use></svg>
+                                            <span>Шрифтовая пара</span>
+                                        </li>
+                                        <li>
+                                            <svg><use xlink:href="img/svg/sprite.svg#star"></use></svg>
+                                            <span>Графические элементы</span>
+                                        </li>
+                                        <li>
+                                            <svg><use xlink:href="img/svg/sprite.svg#star"></use></svg>
+                                            <span>Стиль коммуникации бренда</span>
+                                        </li>
+                                        <li>
+                                            <svg><use xlink:href="img/svg/sprite.svg#star"></use></svg>
+                                            <span>Инструкции по правильному применению логотипа, цветов, шрифтов и других элементов</span>
+                                        </li>
+                                        <li>
+                                            <svg><use xlink:href="img/svg/sprite.svg#star"></use></svg>
+                                            <span>Примеры использования бренда на различных носителях (визитки, полиграфия, рекламные материалы)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="present-block__logo">
+                                    <img src="img/svg/stolkovo.svg" alt="Столково">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 <!--required-sec-->
                 <section class="section-l switch-block required-sec" id="required-sec">
                     <div class="container">
                         <div class="sec-top">
                             <h2 class="sec-title">требования&nbsp; к участникам</h2>
-                            <p>Согласно <a href="#">Положению о реализации проекта</a> к участникам предъявляются следующие общие требования:</p>
+                            <p>Согласно <button class="mod-open-btn" data-modal="criteries-mod">Положению о реализации проекта</button> к участникам предъявляются следующие
+                                общие требования:</p>
                         </div>
                         <div class="mb-60 required-sec__tabs">
                             <button class="btn required-sec__tab active" data-nav><span>Для физических лиц</span></button>
@@ -362,8 +414,8 @@
                             <div class="required-sec__right">
                                 <p class="h3">Количество мест ограничено. Успейте зарегистрироваться!</p>
                                 <img class="sec-bg" src="img/svg/required-bg.svg" alt>
-                            </div>                           
-                        </div>                       
+                            </div>
+                        </div>
                     </div>
                 </section>
                 <!--reg-sec-->
@@ -397,6 +449,37 @@
                                     <span class="h5">г. Нижний Новгород, ул. Большая Покровская, 20Б, 1 этаж</span>
                                 </div>
                                 <div class="h4">Встречаемся здесь!</div>
+                            </div>
+                            <div class="map-sec__form">
+                                <h3>Если у вас есть вопрос, напишите нам</h3>
+                                <form
+                                    onsubmit="event.preventDefault();openSuccessMod('Спасибо за ваш вопрос!', 'Мы получили ваше сообщение и постараемся ответить вам в ближайшее время')">
+                                    <div class="item-form">
+                                        <div class="item-form__lbl">Фамилия Имя Отчество</div>
+                                        <input type="text" placeholder="Иванов Иван Иванович">
+                                        <span data-error></span>
+                                    </div>
+                                    <div class="item-form">
+                                        <div class="item-form__lbl">Контактная электронная почта</div>
+                                        <input type="text" placeholder="mail@sample.ru">
+                                        <span data-error></span>
+                                    </div>
+                                    <div class="item-form">
+                                        <div class="item-form__lbl">Вопрос</div>
+                                        <textarea
+                                            placeholder="Текст вопроса.."
+                                            oninput="this.style.height = '';this.style.height = this.scrollHeight + 'px'"></textarea>
+                                        <span data-error></span>
+                                    </div>
+                                    <div class="form__footer">
+                                        <p class="form__txt">Нажимая на кнопку «Отправить», вы принимаете условия <a href="#" target="_blank">Пользовательского
+                                                соглашения</a></p>
+                                        <div class="modal__btns">
+                                            <button type="submit" class="btn main-btn"><span>Отправить</span></button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <img class="sec-bg" src="img/svg/map-form-bg.svg" alt>
                             </div>
                         </div>
                     </div>

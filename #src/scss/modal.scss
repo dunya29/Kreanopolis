@@ -220,6 +220,45 @@
         }
     }
 }
+.criteries-mod {
+    .modal__content {
+        max-width: 1126px;
+    }
+    .page-content {
+        margin-bottom: 30px;
+        & > ol > li {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            & > ul {
+                padding-left: 0;
+                & > li {
+                    padding-left: 32px;
+                    background: url(../img/svg/star-primary.svg) top left / 24px 24px no-repeat;
+                    @media (max-width: $bp2) {
+                        padding-left: 28px;
+                        background-size: 20px 20px;
+                    }
+                    &::before {
+                        content: none;
+                    }
+                    & > ul {
+                        padding-left: 0;
+                    }
+                    & > ol > li {
+                        margin-left: 4px;
+                    }
+                }
+            }
+        }
+        h6 {
+            font-weight: 500;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+    }
+}
 .success-mod,
 .error-mod {
     p {

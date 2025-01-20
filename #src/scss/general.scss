@@ -647,6 +647,16 @@ h6,
             margin-bottom: 16px;
         }
     }
+    &__txt {
+        font-size: 16px;
+        margin-bottom: 12px;
+        a {
+            color: var(--primary-color);
+            &:hover {
+                color: var(--primary-hover-color);
+            }
+        }
+    }
     @media (max-width: $bp3) {
         &__footer {
             margin-top: 24px;
@@ -743,6 +753,66 @@ h6,
             padding: 4px;
             max-height: 360px;
             overflow: auto;
+        }
+    }
+}
+.page-content {
+    & > *:first-child {
+        margin-top: 0;
+    }
+    & > *:last-child {
+        margin-bottom: 0;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-bottom: 12px;
+    }
+    ul,
+    ol {
+        margin-bottom: 20px;
+        li {
+            margin-bottom: 8px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        ol,
+        ul {
+            margin-top: 8px;
+        }
+    }
+    ul {
+        padding-left: 20px;
+    }
+    ul > li {
+        padding-left: 14px;
+        position: relative;
+        &::before {
+            content: "";
+            flex: 0 0 4px;
+            width: 4px;
+            height: 4px;
+            display: block;
+            position: absolute;
+            top: 9px;
+            left: 0;
+            border-radius: 50%;
+            background: #000;
+            @media (max-width: $bp2) {
+                top: 8px;
+            }
+        }
+    }
+    ol > li {
+        list-style: decimal;
+        margin-left: 24px;
+        padding-left: 10px;
+        &::marker {
+            font-weight: 500;
         }
     }
 }

@@ -1,11 +1,27 @@
-if (document.querySelector(".preloader")) {
-	window.addEventListener("load", (event) => {
+window.addEventListener("load", (event) => {
+	if (document.querySelector(".preloader")) {
 		document.body.classList.add('loaded');
 		setTimeout(() => {
 			document.querySelector(".preloader").remove()
 		}, 500);
-	});
-}
+	}
+	//intro title animation
+	const introTitle = document.querySelectorAll(".intro__title svg")
+	if (introTitle.length) {
+		introTitle.forEach((title, i) => {
+			gsap.fromTo(title.querySelectorAll("path"),
+				{
+					yPercent: 150, opacity: 0
+				},
+				{
+					yPercent: 0, opacity: 1,
+					duration: .4,
+					delay: index => index * 0.04 + 0.4 * i
+				}
+			)
+		})
+	}
+});
 const header = document.querySelector(".header")
 const mobMenu = document.querySelector('.mob-menu');
 const iconMenu = document.querySelector('.icon-menu');
@@ -469,6 +485,12 @@ if (advantSec) {
 const stagesSec = document.querySelector(".stages-sec")
 const itemStages = document.querySelectorAll(".item-stage")
 if (stagesSec && itemStages.length > 0) {
+	function setActiveStage(item) {
+		if (!item.classList.contains("active")) {
+			itemStages.forEach(item => item.classList.remove("active"))
+			item.classList.add("active")
+		}
+	}
 	let slideCount = itemStages.length
 	itemStages[0].classList.add("active")
 	mm.add("(min-width: 767.98px)", () => {
@@ -482,8 +504,7 @@ if (stagesSec && itemStages.length > 0) {
 				invalidateOnRefresh: true,
 				end: "+=" + 800 * slideCount,
 				onUpdate: (self) => {
-					itemStages.forEach(item => item.classList.remove("active"))
-					itemStages[Math.round(activeIndex.value)].classList.add("active")
+					setActiveStage(itemStages[Math.round(activeIndex.value)])
 				}
 			}
 		})
@@ -496,41 +517,24 @@ if (stagesSec && itemStages.length > 0) {
 			ease: "none"
 		}, 0)
 	});
-	itemStages.forEach(item => {
-		mm.add("(max-width: 767.98px)", () => {
-			gsap.to(item, {
-				scrollTrigger: {
-					trigger: item,
-					scrub: true,
-					start: "top 100px",
-					end: "bottom center",
-					invalidateOnRefresh: true,
-					onUpdate: (self) => {
-						itemStages.forEach(item => item.classList.remove("active"))
-						item.classList.add("active")
+	function mobileStageAnim() {
+		if (window.innerWidth < 767.98) {
+			let lastScroll = scrollPos()
+			window.addEventListener("scroll", () => {
+				itemStages.forEach((item, i) => {
+					if (scrollPos() > lastScroll && 0 < Math.ceil(item.getBoundingClientRect().top) && Math.ceil(item.getBoundingClientRect().top) < 100) {
+						setActiveStage(item)
+					} else if (scrollPos() < lastScroll && 100 < Math.ceil(item.getBoundingClientRect().top) && Math.ceil(item.getBoundingClientRect().top) < 150) {
+						setActiveStage(item)
 					}
-				}
+				})
+				lastScroll = scrollPos()
 			})
-		});
-	})
-}
-//intro title animation
-const introTitle = document.querySelectorAll(".intro__title svg")
-if (introTitle.length) {
-	setTimeout(() => {
-		introTitle.forEach((title, i) => {
-			gsap.fromTo(title.querySelectorAll("path"),
-				{
-					yPercent: 150, opacity: 0
-				},
-				{
-					yPercent: 0, opacity: 1,
-					duration: .4,
-					delay: index => index * 0.04 + 0.4 * i
-				}
-			)
-		})
-	}, 100);
+		}
+	}
+	mobileStageAnim()
+	window.addEventListener("resize", () => mobileStageAnim())
+	window.addEventListener("orientationChange", () => mobileStageAnim())
 }
 //section title animation
 const secTitles = document.querySelectorAll(".sec-title")
