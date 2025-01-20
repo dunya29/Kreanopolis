@@ -2675,7 +2675,7 @@ h6,
   }
 
   .map-sec .sec-bg {
-    right: -25%;
+    right: -32%;
     -webkit-transform: translateY(23%) scale(0.8);
     -ms-transform: translateY(23%) scale(0.8);
     transform: translateY(23%) scale(0.8);
@@ -3035,7 +3035,9 @@ h6,
   }
 
   .map-sec .sec-bg {
-    right: -27%;
+    -webkit-transform: translateY(19%) scale(0.7);
+    -ms-transform: translateY(19%) scale(0.7);
+    transform: translateY(19%) scale(0.7);
   }
 
   .map-sec .sec-inner {
@@ -3306,7 +3308,12 @@ h6,
   }
 
   .map-sec .sec-bg {
-    right: -27%;
+    width: 200%;
+    max-width: 650px;
+    right: 50%;
+    -webkit-transform: translate(59%, 75%) scale(1);
+    -ms-transform: translate(59%, 75%) scale(1);
+    transform: translate(59%, 75%) scale(1);
   }
 
   .map-sec__map [class*=-placemark] [class*=-image] {
@@ -3315,6 +3322,10 @@ h6,
     width: 26px !important;
     height: 34px !important;
     background-size: 26px 34px !important;
+  }
+
+  .map-sec {
+    padding-bottom: 300px;
   }
 
   .map-sec .sec-inner {
@@ -3328,6 +3339,10 @@ h6,
 
   .map-sec__content h3 {
     max-width: 350px;
+  }
+
+  .map-sec__form {
+    max-width: 500px;
   }
 
   .partners__item {
@@ -3667,6 +3682,10 @@ h6,
   }
 
   .reg-sec .sec-bg {
+    max-width: 550px;
+  }
+
+  .map-sec .sec-bg {
     max-width: 550px;
   }
 }

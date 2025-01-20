@@ -467,14 +467,20 @@
         right: -23%;
         transform: translateY(23%);
         @media (max-width: $bp1) {
-            right: -25%;
+            right: -32%;
             transform: translateY(23%) scale(0.8);
         }
         @media (max-width: $bp2) {
-            right: -27%;
+            transform: translateY(19%) scale(0.7);
         }
-         @media (max-width: $bp3) {
-            right: -27%;
+        @media (max-width: $bp3) {
+            width: 200%;
+            max-width: 650px;
+            right: 50%;
+            transform: translate(59%, 75%) scale(1);
+        }
+        @media (max-width: $bp6) {
+            max-width: 550px;
         }
     }
     &__map {
@@ -539,6 +545,7 @@
         }
     }
     @media (max-width: $bp3) {
+        padding-bottom: 300px;
         .sec-inner {
             grid-template-columns: 1fr;
             gap: 20px;
@@ -550,6 +557,9 @@
             h3 {
                 max-width: 350px;
             }
+        }
+        &__form {
+            max-width: 500px;
         }
     }
 }
